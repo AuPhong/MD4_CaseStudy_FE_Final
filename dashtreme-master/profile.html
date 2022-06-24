@@ -26,6 +26,7 @@
     <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
     <!-- Custom Style-->
     <link href="assets/css/app-style.css" rel="stylesheet"/>
+    <script src="ajax/profile.js"></script>
 
 </head>
 
@@ -580,33 +581,4 @@
 <script src="assets/js/app-script.js"></script>
 
 </body>
-<script>
-    $(document).ready(function () {
-        $.ajax({
-            url: "http://localhost:8080/userInfo/findByUserId/16",
-            method: "get",
-            contentType: "application/json; charSet=utf8",
-            success: function (data) {
-                console.log(data)
-                document.getElementById("profile-image").src = data.avatar;
-                document.getElementById("user_name").innerHTML = data.name;
-                document.getElementById("user_profile_name").innerHTML = data.name;
-                document.getElementById("user_profile_phonenumber").innerHTML = data.phoneNumber;
-                document.getElementById("user_profile_address").innerHTML = data.address;
-
-                document.getElementById("user_edit_name").value = data.name;
-                document.getElementById("user_profile_address").value = data.address;
-                document.getElementById("user_edit_avatar").value = data.avatar;
-                document.getElementById("user_profile_phonenumber").value = data.phoneNumber;
-            }
-        })
-    })
-
-    $('#btn_edit').click(function (){
-        $.ajax({
-            
-        })
-    })
-
-</script>
 </html>
