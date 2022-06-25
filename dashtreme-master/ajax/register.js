@@ -14,6 +14,7 @@ $(document).ready(function () {
         let no_field = "Please enter all the fields!";
         let no_email = "This email is already exist";
         let not_an_email = "Not an email, try again!"
+        // alert("Co vao khong")
         $.ajax({
             url: "http://localhost:8080/register",
             contentType: "application/json; charSet = utf8",
