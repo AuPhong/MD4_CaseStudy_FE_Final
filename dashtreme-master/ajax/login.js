@@ -18,12 +18,12 @@ function login() {
         //tên API
         url: "http://localhost:8080/login",
         //xử lý khi thành công
-        success: function () {
+        success: function (data) {
             document.getElementById('messageLogin').innerHTML = "Login Successful ! Wait 3s";
-                setTimeout(function() {
-
-                    window.location.href = "profile.html"
-                }, 2000);
+            sessionStorage.setItem('id',`${data.id}`)
+            setTimeout(function() {
+                window.location.href = "profile.html"
+            }, 2000);
         }
     });
     //chặn sự kiện mặc định của thẻ

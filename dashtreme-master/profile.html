@@ -8,8 +8,7 @@
     <meta name="author" content=""/>
     <title>Profile</title>
     <!-- loader-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css"/>
+
     <link href="assets/css/pace.min.css" rel="stylesheet"/>
     <script src="assets/js/pace.min.js"></script>
     <!--favicon-->
@@ -26,7 +25,9 @@
     <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
     <!-- Custom Style-->
     <link href="assets/css/app-style.css" rel="stylesheet"/>
-    <script src="ajax/profile.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script src="ajax/upload-firebase.js"></script>
+
 
 </head>
 
@@ -283,7 +284,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="javascript:void();" data-target="#messages" data-toggle="pill"
-                                       class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Messages</span></a>
+                                       class="nav-link"><i class="icon-lock"></i> <span class="hidden-xs">Change password</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="javascript:void();" data-target="#edit" data-toggle="pill"
@@ -368,52 +369,85 @@
                                     <!--/row-->
                                 </div>
                                 <div class="tab-pane" id="messages">
-                                    <div class="alert alert-info alert-dismissible" role="alert">
-                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        <div class="alert-icon">
-                                            <i class="icon-info"></i>
-                                        </div>
-                                        <div class="alert-message">
-                                            <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
+<!--                                    <div class="alert alert-info alert-dismissible" role="alert">-->
+<!--                                        <button type="button" class="close" data-dismiss="alert">&times;</button>-->
+<!--                                        <div class="alert-icon">-->
+<!--                                            <i class="icon-info"></i>-->
+<!--                                        </div>-->
+<!--                                        <div class="alert-message">-->
+<!--                                            <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="table-responsive">-->
+<!--                                        <table class="table table-hover table-striped">-->
+<!--                                            <tbody>-->
+<!--                                            <tr>-->
+<!--                                                <td>-->
+<!--                                                    <span class="float-right font-weight-bold">3 hrs ago</span> Here is-->
+<!--                                                    your a link to the latest summary report from the..-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>-->
+<!--                                                    <span class="float-right font-weight-bold">Yesterday</span> There-->
+<!--                                                    has been a request on your account since that was..-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>-->
+<!--                                                    <span class="float-right font-weight-bold">9/10</span> Porttitor-->
+<!--                                                    vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia-->
+<!--                                                    rhoncus.-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>-->
+<!--                                                    <span class="float-right font-weight-bold">9/4</span> Vestibulum-->
+<!--                                                    tincidunt ullamcorper eros eget luctus.-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                            <tr>-->
+<!--                                                <td>-->
+<!--                                                    <span class="float-right font-weight-bold">9/4</span> Maxamillion-->
+<!--                                                    ais the fix for tibulum tincidunt ullamcorper eros.-->
+<!--                                                </td>-->
+<!--                                            </tr>-->
+<!--                                            </tbody>-->
+<!--                                        </table>-->
+<!--                                    </div>-->
+<!--                                    <div id="register-err" class="small-font text-uppercase text-center py-2 text-danger bg-danger-light2 " style="color: red">Please fill this form to-->
+<!--                                        signup!</div>-->
+<!--                                    <br>-->
+                                    <span id="changePasswordError"></span>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Current password</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="password" id="user_edit_password">
                                         </div>
                                     </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-hover table-striped">
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <span class="float-right font-weight-bold">3 hrs ago</span> Here is
-                                                    your a link to the latest summary report from the..
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span class="float-right font-weight-bold">Yesterday</span> There
-                                                    has been a request on your account since that was..
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span class="float-right font-weight-bold">9/10</span> Porttitor
-                                                    vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia
-                                                    rhoncus.
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span class="float-right font-weight-bold">9/4</span> Vestibulum
-                                                    tincidunt ullamcorper eros eget luctus.
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <span class="float-right font-weight-bold">9/4</span> Maxamillion
-                                                    ais the fix for tibulum tincidunt ullamcorper eros.
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">New password</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="password" id="user_edit_newPassword">
+                                        </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Confirm new password</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="password" id="user_edit_confirmNewPassword">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                                        <div class="col-lg-9">
+<!--                                            <input type="reset" class="btn btn-secondary" value="Cancel">-->
+                                            <input type="button" class="btn btn-primary" id="btn_changepassword" value="Save Changes">
+                                        </div>
+                                    </div>
+
+
+
                                 </div>
                                 <div class="tab-pane" id="edit">
                                     <!--                                    <form>-->
@@ -431,10 +465,16 @@
                                     <!--                                            </div>-->
                                     <!--                                        </div>-->
                                     <div class="form-group row">
+<!--                                        <span class="input-group-text">Image</span>-->
+
                                         <label class="col-lg-3 col-form-label form-control-label">Change
                                             profile avatar</label>
+
                                         <div class="col-lg-9">
-                                            <input class="form-control" type="file" id="user_edit_avatar">
+                                            <progress value="0" max="100" id="uploader">0%</progress>
+                                            <input type="file" value="upload" accept=".jpg" id="fileButton" onchange="upload(event)">
+                                            <div id="imgDiv"></div>
+<!--                                            <input class="form-control" type="file" id="user_edit_avatar">-->
                                         </div>
                                     </div>
                                     <!--                                        <div class="form-group row">-->
@@ -470,25 +510,24 @@
                                             <input class="form-control" type="text" id="user_edit_phonenumber">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" id="user_edit_username">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="password" id="user_edit_password">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Confirm
-                                            password</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="password" id="user_edit_confirmpassword">
-                                        </div>
-                                    </div>
+<!--                                    <div class="form-group row">-->
+<!--                                        <label class="col-lg-3 col-form-label form-control-label">Username</label>-->
+<!--                                        <div class="col-lg-9">-->
+<!--                                            <input class="form-control" type="text" id="user_edit_username">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group row">-->
+<!--                                        <label class="col-lg-3 col-form-label form-control-label">Password</label>-->
+<!--                                        <div class="col-lg-9">-->
+<!--                                            <input class="form-control" type="password" id="user_edit_password">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group row">-->
+<!--                                        <label class="col-lg-3 col-form-label form-control-label">Confirm-->
+<!--                                            password</label>-->
+<!--                                        <div class="col-lg-9">-->
+<!--                                            <input class="form-control" type="password" id="user_edit_confirmpassword">-->
+<!--                                    </div>-->
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
@@ -582,3 +621,8 @@
 
 </body>
 </html>
+<script src="ajax/profile.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css"/>
+<script src="ajax/upload-firebase.js"></script>
+
