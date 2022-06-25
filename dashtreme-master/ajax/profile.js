@@ -14,6 +14,7 @@ function showProfile(){
             document.getElementById("user_name").innerHTML = data.name;
             document.getElementById("user_profile_name").innerHTML = data.name;
             document.getElementById("user_profile_phonenumber").innerHTML = data.phoneNumber;
+            document.getElementById("user_profile_email").innerHTML = data.email;
             document.getElementById("user_profile_address").innerHTML = data.address;
 
             document.getElementById("user_edit_name").value = data.name;
