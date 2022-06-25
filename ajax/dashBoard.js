@@ -61,9 +61,9 @@ function chart2(id){
             month: month,
             year: 2022
         },
-        url: `http://localhost:8080/categories/list/`+id,
+        url: `http://localhost:8080/transaction/listCate/`+id,
         success: function (data){
-             categories = data.name;
+             categories = data.category;
          let content = `<tr>
                    <td><i class="fa fa-circle text-white mr-2"></i>data.name</td>
                    <td>$5856</td>
