@@ -38,7 +38,6 @@ const d = new Date();
 let month = d.getMonth();
 function setData() {
     chart1(id,month);
-    alert(overAllIncome,overAllOutcome);
     document.getElementById(`overallIncome`).innerHTML = overAllIncome.toLocaleString('en-US')+" "+"VND";
     document.getElementById(`overOutcome`).innerHTML = overAllOutcome.toLocaleString('en-US')+" "+"VND";
     document.getElementById(`overallBalance`).innerHTML = overAllIncome-overAllOutcome+" "+"VND";
