@@ -7,6 +7,7 @@ $(function() {
 		arr[0].push([moneyFlow[0]/1000])
 		arr[1].push([moneyFlow[1]/1000])
 	}
+
      // chart 1
 	 
 		  var ctx = document.getElementById('chart1').getContext('2d');
@@ -71,16 +72,17 @@ $(function() {
 				 }
 
 			 }
-			});  
-		
+			});
 		
     // chart 2
+
+	categoriesVar;
 
 		var ctx = document.getElementById("chart2").getContext('2d');
 			var myChart = new Chart(ctx, {
 				type: 'doughnut',
 				data: {
-					labels: ["Direct", "Affiliate", "E-mail", "Other"],
+					labels: ["Tien Nha", "Tien Nuoc", "Tien Mang", "Tien Hoc"],
 					datasets: [{
 						backgroundColor: [
 							"#ffffff",
@@ -88,7 +90,7 @@ $(function() {
 							"rgba(255, 255, 255, 0.50)",
 							"rgba(255, 255, 255, 0.20)"
 						],
-						data: [15856, 2602, 1802, 1105],
+						data: [categoriesVar[1], categoriesVar[3], categoriesVar[5], categoriesVar[7]],
 						borderWidth: [0, 0, 0, 0]
 					}]
 				},

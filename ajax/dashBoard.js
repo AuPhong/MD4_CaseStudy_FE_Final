@@ -6,7 +6,8 @@ function logOut(){
 
 var moneyFlow
 
-
+var overAllIncome
+var overAllOutcome
 function chart1(id,month){
     $.ajax({
         headers: {
@@ -25,10 +26,22 @@ function chart1(id,month){
             let inFlow = data.inFlow;
             let outFlow = data.outFlow;
             let arr = [inFlow,outFlow]
+           overAllIncome = inFlow
+            overAllOutcome = outFlow
             moneyFlow = arr;
             return arr;
         }
     })
+}
+
+const d = new Date();
+let month = d.getMonth();
+function setData() {
+    chart1(id,month);
+    alert(overAllIncome,overAllOutcome);
+    document.getElementById(`overallIncome`).innerHTML = overAllIncome.toLocaleString('en-US')+" "+"VND";
+    document.getElementById(`overOutcome`).innerHTML = overAllOutcome.toLocaleString('en-US')+" "+"VND";
+    document.getElementById(`overallBalance`).innerHTML = overAllIncome-overAllOutcome+" "+"VND";
 }
 
 function getName(id) {
@@ -47,7 +60,7 @@ function getName(id) {
     })
 }
 
-var categories
+var categoriesVar =[]
 function chart2(id){
     $.ajax({
         headers: {
@@ -56,28 +69,35 @@ function chart2(id){
         },
         type: "GET",
         async: false,
-        dataType: 'JSON',
-        data: {
-            month: month,
-            year: 2022
-        },
-        url: `http://localhost:8080/transaction/listCate/`+id,
+        url: `http://localhost:8080/transaction/listCate/${id}`,
         success: function (data){
-             categories = data.category;
-         let content = `<tr>
-                   <td><i class="fa fa-circle text-white mr-2"></i>data.name</td>
-                   <td>$5856</td>
-                   <td>+55%</td>
+             // categories = data.category.name;
+             // let sumMoney = data.sumMoney;
+         let content1 = `<tr>
+                   <td><i class="fa fa-circle text-white mr-2"></i>${data[0].category.name}</td>
+                   <td>${data[0].sumMoney.toLocaleString('en-US')} VND</td>
+                   <td>+${Math.random().toFixed(1)*100+"%"}</td>
                    </tr>`
+            for (let i = 1; i <data.length; i++) {
+                content1 += getChart2Content(data,i)
+            }
+            document.getElementById('chart2Content').innerHTML = content1;
+
+            for (let i = 0; i <data.length; i++) {
+                categoriesVar.push(data[i].category.name,data[i].sumMoney)
+            }
+
+
         }
+
     })
 }
 
-function getChart2Content(categories) {
+function getChart2Content(categories,index) {
     return `<tr>
-                   <td><i class="fa fa-circle text-light-${categories.id} mr-2"></i>categories.name</td>
-                   <td>$5856</td>
-                   <td>+55%</td>
+                   <td><i class="fa fa-circle text-light-${categories[1].id} mr-2"></i>${categories[index].category.name}</td>
+                   <td>${categories[index].sumMoney.toLocaleString('en-US')} VND</td>
+                   <td>+${Math.random().toFixed(1)*100+"%"}</td>
                    </tr>`;
 }
 
@@ -87,3 +107,5 @@ function getSmartphone(smartphone) {
         `<td><a class="editSmartphone" href="${smartphone.id}">Edit</a></td></tr>`
         ;
 }
+
+function getWallets(wallets){}

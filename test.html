@@ -1,101 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-image: url(assets/images/bg-themes/2.png)">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tables</title>
+
+
+    <link href="assets/css/pace.min.css" rel="stylesheet"/>
+    <script src="assets/js/pace.min.js"></script>
+    <!--favicon-->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+    <!-- simplebar CSS-->
+    <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.2/css/uikit.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.uikit.min.css">
+
+
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/dataTables.uikit.min.js"></script>
+    <link href="assets/css/app-style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+
+
 </head>
-<body>
-<div style="margin-right: auto;margin-left: auto;width: 75%" class="table-responsive">
-    <table id="walletTable" class="uk-table uk-table-hover uk-table-striped" style="width:75%">
-        <thead>
-        <tr>
-            <th>Order</th>
-            <th>Balance</th>
-            <th>Date</th>
-            <th>Name</th>
-            <th>Total</th>
-            <th>Currency</th>
-        </tr>
-        </thead>
-        <tbody><tr>
-            <td>Iphone 5</td>
-            <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
-            <td>#9405822</td>
-            <td>$ 1250.00</td>
-            <td>03 Aug 2017</td>
-            <td><div class="progress shadow" style="height: 3px;">
-                <div class="progress-bar" role="progressbar" style="width: 90%"></div>
-            </div></td>
-        </tr>
+<body class="bg-theme bg-theme2" >
 
-        <tr>
-            <td>Earphone GL</td>
-            <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
-            <td>#9405820</td>
-            <td>$ 1500.00</td>
-            <td>03 Aug 2017</td>
-            <td><div class="progress shadow" style="height: 3px;">
-                <div class="progress-bar" role="progressbar" style="width: 60%"></div>
-            </div></td>
-        </tr>
+<div class="card" style="background-color: rgba(0,0,0,0.5)">
+    <div style="margin-right: auto;margin-left: auto;width: 100%" class="table-responsive">
+        <table id="walletTable" class="table align-items-center" style="padding-right: 25px">
+            <thead>
+            <tr>
+                <th>Order</th>
+                <th>Name </th>
+                <th>Date</th>
+                <th>Icon</th>
+                <th>Total</th>
+                <th>Balance</th>
+            </tr>
+            </thead>
+            <tbody><tr>
+                <td>Iphone 5</td>
+                <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
+                <td>#9405822</td>
+                <td>$ 1250.00</td>
+                <td>03 Aug 2017</td>
+                <td><div class="progress shadow" style="height: 3px;">
+                    <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                </div></td>
+            </tr>
 
-        <tr>
-            <td>HD Hand Camera</td>
-            <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
-            <td>#9405830</td>
-            <td>$ 1400.00</td>
-            <td>03 Aug 2017</td>
-            <td><div class="progress shadow" style="height: 3px;">
-                <div class="progress-bar" role="progressbar" style="width: 70%"></div>
-            </div></td>
-        </tr>
+            <tr>
+                <td>Earphone GL</td>
+                <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
+                <td>#9405820</td>
+                <td>$ 1500.00</td>
+                <td>03 Aug 2017</td>
+                <td><div class="progress shadow" style="height: 3px;">
+                    <div class="progress-bar" role="progressbar" style="width: 60%"></div>
+                </div></td>
+            </tr>
 
-        <tr>
-            <td>Clasic Shoes</td>
-            <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
-            <td>#9405825</td>
-            <td>$ 1200.00</td>
-            <td>03 Aug 2017</td>
-            <td><div class="progress shadow" style="height: 3px;">
-                <div class="progress-bar" role="progressbar" style="width: 100%"></div>
-            </div></td>
-        </tr>
+            <tr>
+                <td>HD Hand Camera</td>
+                <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
+                <td>#9405830</td>
+                <td>$ 1400.00</td>
+                <td>03 Aug 2017</td>
+                <td><div class="progress shadow" style="height: 3px;">
+                    <div class="progress-bar" role="progressbar" style="width: 70%"></div>
+                </div></td>
+            </tr>
 
-        <tr>
-            <td>Hand Watch</td>
-            <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
-            <td>#9405840</td>
-            <td>$ 1800.00</td>
-            <td>03 Aug 2017</td>
-            <td><div class="progress shadow" style="height: 3px;">
-                <div class="progress-bar" role="progressbar" style="width: 40%"></div>
-            </div></td>
-        </tr>
+            <tr>
+                <td>Clasic Shoes</td>
+                <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
+                <td>#9405825</td>
+                <td>$ 1200.00</td>
+                <td>03 Aug 2017</td>
+                <td><div class="progress shadow" style="height: 3px;">
+                    <div class="progress-bar" role="progressbar" style="width: 100%"></div>
+                </div></td>
+            </tr>
 
-        <tr>
-            <td>Clasic Shoes</td>
-            <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
-            <td>#9405825</td>
-            <td>$ 1200.00</td>
-            <td>03 Aug 2017</td>
-            <td><div class="progress shadow" style="height: 3px;">
-                <div class="progress-bar" role="progressbar" style="width: 100%"></div>
-            </div></td>
-        </tr>
+            <tr>
+                <td>Hand Watch</td>
+                <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
+                <td>#9405840</td>
+                <td>$ 1800.00</td>
+                <td>03 Aug 2017</td>
+                <td><div class="progress shadow" style="height: 3px;">
+                    <div class="progress-bar" role="progressbar" style="width: 40%"></div>
+                </div></td>
+            </tr>
 
-        </tbody></table>
+            <tr>
+                <td>Clasic Shoes</td>
+                <td><img src="https://via.placeholder.com/110x110" class="product-img" alt="product img"></td>
+                <td>#9405825</td>
+                <td>$ 1200.00</td>
+                <td>03 Aug 2017</td>
+                <td><div class="progress shadow" style="height: 3px;">
+                    <div class="progress-bar" role="progressbar" style="width: 100%"></div>
+                </div></td>
+            </tr>
+
+            </tbody></table>
+    </div>
 </div>
+
 
 
 </body>
 </html>
+<style>
+    div.dataTables_filter, div.dataTables_length, div.dataTables_paginate {
+        padding: 25px;
+    }
+    th.dt-center, td.dt-center { text-align: center; }
+</style>
 <script>
+    // $(document).ready(function () {
+    //     $('#walletTable').DataTable(
+    //         {  pageLength: 0,
+    //             lengthMenu: [5, 10, 15, 20, 50, 100, 200, 500],
+    //         "columnDefs": [ {"className": "dt-center", "targets": "_all"},
+    //             {"targets": '_all',
+    //             "createdCell": function (td, cellData, rowData, row, col) {
+    //                 $(td).css('padding', '5px')
+    //             }
+    //         } ]
+    //     });
+    // });
+var id = sessionStorage.getItem(`id`)
     $(document).ready(function () {
-        $('#walletTable').DataTable();
-    });
+
+        var editIcon = function ( data, type, row ) {
+            if ( type === 'display' ) {
+                return data +` `+ '<i class="zmdi zmdi-github-alt fa-lg"></i>';
+            }
+            return data;
+        };
+        var date = function ( data, type, row ) {
+            if ( type === 'display' ) {
+                return data.substring(0,16);
+            }
+            return data.substring(0,16);
+        };
+
+        $('#walletTable tbody').on( 'click', 'td i', function (e) {
+            e.stopImmediatePropagation(); // stop the row selection when clicking on an icon
+            editor.inline( $(this).parent() );
+        } );
+        $('#walletTable').dataTable( {
+         pageLength: 0,
+            lengthMenu: [5, 10, 15, 20, 50, 100, 200, 500],
+            "columnDefs": [ {"className": "dt-center", "targets": "_all"},
+            {"targets": '_all',
+                "createdCell": function (td, cellData, rowData, row, col) {
+                    $(td).css('padding', '5px')
+                }
+            } ]
+        ,
+            ajax: {
+                url: `http://localhost:8080/wallet/getWalletByUserId/${id}`,
+                type: "GET",
+                dataSrc: ''
+            },
+            processing: true,
+            columns: [
+                { data: 'id' },
+                { data: 'name' },
+                { data: 'date',render:date },
+                { data: 'icon.linkIcon', render: editIcon },
+                { data: 'total' },
+                { data: 'balance' },
+            ],
+            })
+        } );
+
+
+
 </script>

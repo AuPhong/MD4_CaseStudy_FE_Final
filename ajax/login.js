@@ -3,6 +3,7 @@ function login() {
     //lay du lieu
     let username = $('#username').val();
     let password = $('#password').val();
+    var stt = 1;
     let login = {
         username: username,
         password: password,
@@ -18,7 +19,7 @@ function login() {
         //tên API
         url: "http://localhost:8080/login",
         //xử lý khi thành công
-        success: function (data) {
+        success: function log (data) {
             document.getElementById('messageLogin').innerHTML = "Login Successful ! Wait 3s";
             sessionStorage.setItem('id',`${data.id}`)
                 setTimeout(function() {
@@ -27,7 +28,10 @@ function login() {
         }
     });
     //chặn sự kiện mặc định của thẻ
-    document.getElementById('messageLogin').innerHTML = `  <div style="filter: brightness(120%)" id="messageFailed" class="small-font text-uppercase text-center py-2 text-danger bg-danger-light2 ">"Login Failed ! Try Again Please !</div>`
 
+    stt = 1;
+    if (stt == 0) {
+        document.getElementById('messageLogin').innerHTML = `  <div style="filter: brightness(120%)" id="messageFailed" class="small-font text-uppercase text-center py-2 text-danger bg-danger-light2 ">"Login Failed ! Try Again Please !</div>`
+    }
     event.preventDefault();
 }
