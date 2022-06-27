@@ -59,6 +59,9 @@ function getName(id) {
     })
 }
 
+
+
+
 var categoriesVar =[]
 function chart2(id){
     $.ajax({
